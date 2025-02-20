@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-// import { FcGoogle } from "react-icons/fc";
 
 export default function SignUp() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -58,18 +58,23 @@ export default function SignUp() {
     setError("");
     setMessage("");
 
-    const res = await fetch("YOUR_BACKEND_API/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    // const res = await fetch("YOUR_BACKEND_API/auth/signup", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(formData),
+    // });
 
-    const data = await res.json();
-    if (res.ok) {
-      setMessage("Registration successful! You can now sign in.");
-    } else {
-      setError(data.message || "Registration failed. Please try again.");
-    }
+    router.push("/dashboard"); // Redirect to Dashboard after sign-up
+
+    // const data = await res.json();
+    // if (res.ok) {
+    //   setMessage("Registration successful! Redirecting to dashboard...");
+    //   setTimeout(() => {
+    //     router.push("/dashboard"); // Redirect to Dashboard after sign-up
+    //   }, 2000);
+    // } else {
+    //   setError(data.message || "Registration failed. Please try again.");
+    // }
   };
 
   return (

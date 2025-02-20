@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -13,21 +14,28 @@ export default function SignInPage() {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    setError("");
 
-    if (result?.error) {
-      setError("Invalid email or password");
-    }
+    // const result = await signIn("credentials", {
+    //   redirect: false,
+    //   email,
+    //   password,
+    // });
+
+    router.push("/dashboard"); // Redirect to dashboard upon success
+
+    // if (result?.error) {
+    //   setError("Invalid email or password");
+    // } else {
+    //   router.push("/dashboard"); // Redirect to dashboard upon success
+    // }
   };
 
   return (
@@ -54,6 +62,7 @@ export default function SignInPage() {
               className="w-full mt-2 p-3 border rounded-lg focus:ring-primary focus:border-primary"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -65,6 +74,7 @@ export default function SignInPage() {
               className="w-full mt-2 p-3 border rounded-lg focus:ring-primary focus:border-primary"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
@@ -95,7 +105,7 @@ export default function SignInPage() {
 
           <button
             type="button"
-            onClick={() => signIn("google")}
+            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             className="w-full flex items-center justify-center gap-2 border py-3 mt-4 rounded-lg hover:bg-gray-100 transition"
           >
             <FcGoogle size={22} />

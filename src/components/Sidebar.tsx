@@ -26,7 +26,7 @@ export default function Sidebar() {
           isOpen ? "translate-x-0" : "-translate-x-64"
         } md:translate-x-0`}
       >
-        <div className="flex items-center">
+        <div className="flex justify-center">
           <Recycle className="mr-2 text-primary" size={32} />
           <h2 className="text-2xl font-bold mb-6">SmartWaste</h2>
         </div>
