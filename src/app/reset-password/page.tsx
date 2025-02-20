@@ -1,13 +1,12 @@
-/* eslint-disable */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 
-export default function ResetPassword() {
+function ResetPasswordForm() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -37,7 +36,6 @@ export default function ResetPassword() {
     });
 
     const data = await res.json();
-    console.log("data: ", data);
     if (res.ok) {
       setMessage("Password reset successfully. You can now sign in.");
     } else {
@@ -107,5 +105,14 @@ export default function ResetPassword() {
         </p>
       </div>
     </div>
+  );
+}
+
+// Wrap component in Suspense
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<div className="text-center mt-6">Loading...</div>}>
+      <ResetPasswordForm />
+    </Suspense>
   );
 }
