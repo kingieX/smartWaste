@@ -30,4 +30,6 @@ SmartWaste is an **IoT-powered waste management system** designed to monitor was
   ```sh
   git clone https://github.com/your-username/smartwaste.git
   cd smartwaste
+  npm install
+  npm run dev
   ```
