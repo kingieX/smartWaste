@@ -86,7 +86,7 @@ export default function SignUp() {
         className="w-full max-w-md bg-white px-8 py-4 rounded-2xl shadow-lg mt-16"
       >
         <h2 className="text-3xl font-bold text-center text-primary">
-          Create an Account
+          Create Account
         </h2>
         <p className="text-center text-gray-600 mt-1">
           Join the Smart Waste Management System
@@ -225,7 +225,7 @@ export default function SignUp() {
         </form>
 
         <p className="text-center text-gray-600 mt-4">
-          Already have an account?{" "}
+          Already have account?{" "}
           <Link
             href="/signin"
             className="text-primary font-semibold hover:underline"
