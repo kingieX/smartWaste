@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // app/dashboard/routes/page.tsx
 "use client";
 
 import { useState } from "react";
-import { Plus, MapPin, Users } from "lucide-react";
+import { Plus } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 
 const mockRoutes = [
