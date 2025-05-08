@@ -213,9 +213,9 @@ export default function DashboardLayout({
                   href={item.path}
                   className={clsx(
                     "flex items-center text-sm gap-3 px-4 py-2 rounded hover:bg-gray-700 transition",
-                    (pathname === item.path ||
-                      (item.path === "/dashboard" &&
-                        pathname.startsWith("/dashboard/"))) &&
+                    pathname === item.path &&
+                      // (item.path === "/dashboard" &&
+                      // pathname.startsWith("/dashboard/"))
                       "bg-primary text-white"
                   )}
                 >
