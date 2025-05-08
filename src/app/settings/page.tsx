@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import DashboardLayout from "../dashboard/layout";
+import DashboardLayout from "../dashboards/layout";
 // import { useTheme } from "@/context/ThemeContext";
 // import { Sun, Moon } from "lucide-react";
 

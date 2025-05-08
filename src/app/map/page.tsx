@@ -3,7 +3,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import DashboardLayout from "../dashboard/layout";
+import DashboardLayout from "../dashboards/layout";
 
 export default function MapPage() {
   useEffect(() => {

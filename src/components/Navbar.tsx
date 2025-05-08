@@ -30,7 +30,7 @@ export default function Navbar() {
           {/* Right-side Button */}
           <div className="hidden md:flex">
             <Link
-              href="/signin"
+              href="/auth/login"
               className="bg-primary text-white px-5 py-2 rounded-lg hover:bg-opacity-80 transition"
             >
               Sign In
@@ -60,7 +60,7 @@ export default function Navbar() {
           />
           <NavItem href="/contact" pathname={pathname} label="Contact" mobile />
           <Link
-            href="/signin"
+            href="/auth/login"
             className="block text-center bg-primary text-white py-2 mx-4 rounded-lg hover:bg-opacity-80 transition"
           >
             Sign In
