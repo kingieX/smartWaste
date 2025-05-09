@@ -13,7 +13,7 @@ const iconColors = {
 function getIcon(status: string) {
   return new L.Icon({
     iconUrl: iconColors[status as keyof typeof iconColors] || iconColors.Empty,
-    shadowUrl: "/icons/marker-shadow.png",
+    // shadowUrl: "/icons/marker-shadow.png",
     iconSize: [25, 25],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
