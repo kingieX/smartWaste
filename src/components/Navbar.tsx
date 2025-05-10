@@ -28,12 +28,18 @@ export default function Navbar() {
           </div>
 
           {/* Right-side Button */}
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gap-2">
             <Link
-              href="/auth/login"
+              href="/auth/signin-selection"
               className="bg-primary text-white px-5 py-2 rounded-lg hover:bg-opacity-80 transition"
             >
               Sign In
+            </Link>
+            <Link
+              href="/signup"
+              className="block text-center border border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 mx-4 rounded-lg hover:bg-opacity-80 transition"
+            >
+              Sign up
             </Link>
           </div>
 
@@ -60,10 +66,16 @@ export default function Navbar() {
           />
           <NavItem href="/contact" pathname={pathname} label="Contact" mobile />
           <Link
-            href="/auth/login"
+            href="/auth/signin-selection"
             className="block text-center bg-primary text-white py-2 mx-4 rounded-lg hover:bg-opacity-80 transition"
           >
             Sign In
+          </Link>
+          <Link
+            href="/signup"
+            className="block text-center bg-primary text-white py-2 mx-4 rounded-lg hover:bg-opacity-80 transition"
+          >
+            Sign up
           </Link>
         </div>
       )}

@@ -181,7 +181,7 @@ export default function LandingPage() {
               community.
             </p>
             <Link
-              href="/auth/login"
+              href="/signup"
               data-aos="zoom-in"
               className="bg-white border border-white text-red-400 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-all"
             >

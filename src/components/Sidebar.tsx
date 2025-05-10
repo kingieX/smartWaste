@@ -32,7 +32,7 @@ export default function Sidebar() {
           <h2 className="text-2xl font-bold mb-6">SmartWaste</h2>
         </div>
 
-        <ul className="space-y-4">
+        <ul className="space-y-2">
           <SidebarLink
             href="/dashboards"
             icon={<Home size={20} />}
