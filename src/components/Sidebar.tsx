@@ -12,6 +12,7 @@ import {
   Settings,
   Trash2,
   Recycle,
+  LogOut,
 } from "lucide-react";
 
 export default function Sidebar() {
@@ -63,6 +64,13 @@ export default function Sidebar() {
             pathname={pathname}
           />
         </ul>
+        <Link
+          href="/logout"
+          className="flex items-center gap-2 mt-6 text-red-500 px-4 py-2 rounded hover:bg-gray-700 transition"
+        >
+          <LogOut />
+          Logout
+        </Link>
       </div>
 
       {/* Mobile Sidebar Toggle */}
@@ -94,7 +102,7 @@ function SidebarLink({
     <li>
       <Link
         href={href}
-        className={`flex items-center space-x-2 px-2 py-2 text-s rounded-lg transition ${
+        className={`flex items-center space-x-2 px-4 py-2 text-s rounded-lg transition ${
           isActive ? "bg-primary text-white" : "hover:text-primary"
         }`}
       >
