@@ -31,38 +31,9 @@ export default function Sidebar() {
           <h2 className="text-2xl font-bold mb-6">SmartWaste</h2>
         </div>
 
-        <div>
-          <ul className="space-y-2">
-            <p className="font-semibold">connect</p>
-            <SidebarLink
-              href="/devices"
-              icon={<Home size={20} />}
-              label="Devices"
-              pathname={pathname}
-            />
-            <SidebarLink
-              href="/device-group"
-              icon={<Home size={20} />}
-              label="Device group"
-              pathname={pathname}
-            />
-            <SidebarLink
-              href="/edge-manifest"
-              icon={<Home size={20} />}
-              label="Edgr manifest"
-              pathname={pathname}
-            />
-            <SidebarLink
-              href="/gateway"
-              icon={<Home size={20} />}
-              label="Available LoRaWAN gateway"
-              pathname={pathname}
-            />
-          </ul>
-        </div>
         <ul className="space-y-4">
           <SidebarLink
-            href="/dashboard"
+            href="/dashboards"
             icon={<Home size={20} />}
             label="Dashboard"
             pathname={pathname}
@@ -123,7 +94,7 @@ function SidebarLink({
     <li>
       <Link
         href={href}
-        className={`flex items-center space-x-2 px-1 py-1 text-s rounded-lg transition ${
+        className={`flex items-center space-x-2 px-2 py-2 text-s rounded-lg transition ${
           isActive ? "bg-primary text-white" : "hover:text-primary"
         }`}
       >
