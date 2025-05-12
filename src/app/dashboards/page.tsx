@@ -5,9 +5,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import BinStatus from "@/components/widgets/BinStatus";
-import MapWidget from "@/components/widgets/MapWidget";
 import RecentActivity from "@/components/widgets/RecentActivity";
 import Alerts from "@/components/widgets/Alerts";
+import dynamic from "next/dynamic";
+
+const MapWidget = dynamic(() => import("@/components/widgets/MapWidget"), {
+  ssr: false,
+});
 
 export default function DashboardPage() {
   useEffect(() => {

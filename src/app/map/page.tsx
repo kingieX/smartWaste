@@ -27,7 +27,7 @@ export default function MapPage() {
 
         <div
           data-aos="zoom-in"
-          className="mt-6 h-60 rounded-lg overflow-hidden z-0"
+          className="mt-6 h-96 rounded-lg overflow-hidden z-0"
         >
           <MapView />
         </div>
