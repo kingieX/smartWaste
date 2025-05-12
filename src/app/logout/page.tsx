@@ -13,7 +13,7 @@ export default function LogoutPage() {
     localStorage.removeItem("userEmail");
 
     // Redirect to login page
-    router.replace("/auth/login");
+    router.replace("/auth/signin-selection");
   }, [router]);
 
   return null;

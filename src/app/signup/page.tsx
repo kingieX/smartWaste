@@ -64,13 +64,13 @@ export default function SignUp() {
     //   body: JSON.stringify(formData),
     // });
 
-    router.push("/dashboard"); // Redirect to Dashboard after sign-up
+    router.push("/dashboards"); // Redirect to Dashboard after sign-up
 
     // const data = await res.json();
     // if (res.ok) {
     //   setMessage("Registration successful! Redirecting to dashboard...");
     //   setTimeout(() => {
-    //     router.push("/dashboard"); // Redirect to Dashboard after sign-up
+    //     router.push("/dashboards"); // Redirect to Dashboard after sign-up
     //   }, 2000);
     // } else {
     //   setError(data.message || "Registration failed. Please try again.");
