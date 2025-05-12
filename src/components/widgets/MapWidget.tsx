@@ -9,11 +9,11 @@ export default function MapWidget() {
 
   const icon = new L.Icon({
     iconUrl: "/icons/green-marker.png",
-    shadowUrl: "/icons/marker-shadow.png",
-    iconSize: [25, 41],
+    // shadowUrl: "/icons/marker-shadow.png",
+    iconSize: [25, 25],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
-    shadowSize: [41, 41],
+    // shadowSize: [41, 41],
   });
 
   return (
