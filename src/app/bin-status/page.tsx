@@ -4,8 +4,38 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import DashboardLayout from "../dashboards/layout";
+import dynamic from "next/dynamic";
+import "leaflet/dist/leaflet.css";
 
-// Define the TypeScript type for the bin data
+// Load Leaflet dynamically (since it relies on window object)
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Marker),
+  { ssr: false }
+);
+import L from "leaflet";
+
+// Fix default icon issue with Leaflet in Next.js
+import iconUrl from "leaflet/dist/images/marker-icon.png";
+import iconShadowUrl from "leaflet/dist/images/marker-shadow.png";
+const DefaultIcon = L.icon({
+  iconUrl:
+    (iconUrl as unknown as { src: string }).src ||
+    (iconUrl as unknown as string),
+  shadowUrl:
+    (iconShadowUrl as unknown as { src: string }).src ||
+    (iconShadowUrl as unknown as string),
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
+// Type for sensor data
 type BinData = {
   sensor_data_id: string;
   distance: string;
@@ -49,7 +79,7 @@ export default function BinStatusPage() {
         {binData ? (
           <div
             data-aos="zoom-in"
-            className="mt-6 p-6 bg-gray-100 rounded-lg space-y-4"
+            className="mt-6 p-6 bg-gray-100 rounded-lg space-y-6"
           >
             <div>
               <h3 className="text-xl font-semibold">Bin ID</h3>
@@ -80,6 +110,30 @@ export default function BinStatusPage() {
               <p className="text-gray-800">
                 Latitude: {binData.latitude}, Longitude: {binData.longitude}
               </p>
+
+              {/* Map */}
+              <div className="h-64 mt-4 rounded-lg overflow-hidden">
+                <MapContainer
+                  center={[
+                    parseFloat(binData.latitude),
+                    parseFloat(binData.longitude),
+                  ]}
+                  zoom={12}
+                  scrollWheelZoom={false}
+                  style={{ height: "100%", width: "100%" }}
+                >
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                  />
+                  <Marker
+                    position={[
+                      parseFloat(binData.latitude),
+                      parseFloat(binData.longitude),
+                    ]}
+                  />
+                </MapContainer>
+              </div>
             </div>
           </div>
         ) : (
